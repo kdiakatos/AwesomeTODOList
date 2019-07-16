@@ -1,0 +1,63 @@
+﻿@model AwesomeTODOList.Models.TODOItem
+<h2>Create new task</h2>
+
+@using (Html.BeginForm("Create", "TODO", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            @Html.LabelFor(i => i.Title)
+            @*<label for="Title">Title</label>*@
+            @Html.TextBoxFor(i => i.Title, new { @class = "form-control", placeholder = "Title" })
+            @Html.ValidationMessageFor(i => i.Title)
+            @*<input type="text" class="form-control" id="Title" name="Title" placeholder="Title">*@
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            @Html.LabelFor(i => i.Description)
+            @*<label for="Description">Description</label>*@
+            @Html.TextBoxFor(i => i.Description, new { @class = "form-control", placeholder = "Description" })
+            @Html.ValidationMessageFor(i => i.Description)
+            @*<input type="text" class="form-control" id="Description" name="Description" placeholder="Description">*@
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            @Html.LabelFor(i => i.DueDate)
+            @*<label for="Title">Due date</label>*@
+            @Html.TextBoxFor(i => i.DueDate, new { @class = "form-control", placeholder = "Due date" })
+            @Html.ValidationMessageFor(i => i.DueDate)
+            @*<input type="text" class="form-control" id="DueDate" name="DueDate" placeholder="Due date">*@
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Create</button>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='@Url.Action("GetAllTasks", "TODO")'">Cancel</button>
+}
+
+@*<form method="post" action="@Url.Action("Create", "TODO")">
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="Title">Title</label>
+                <input type="text" class="form-control" id="Title" name="Title" placeholder="Title">
+
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="Description">Description</label>
+                <input type="text" class="form-control" id="Description" name="Description" placeholder="Description">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="Title">Due date</label>
+                <input type="text" class="form-control" id="DueDate" name="DueDate" placeholder="Due date">
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Create</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='@Url.Action("GetAllTasks", "TODO")'">Cancel</button>
+    </form>*@
+
